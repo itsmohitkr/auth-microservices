@@ -23,4 +23,4 @@ jobs:
         docker buildx build --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKERHUB_USERNAME }}/auth-microservices:latest .
         
     - name: Push Docker Image
-      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/auth-microservices:latest
+      run: docker --push ${{ secrets.DOCKERHUB_USERNAME }}/auth-microservices:latest
