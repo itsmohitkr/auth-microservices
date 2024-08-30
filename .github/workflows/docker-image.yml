@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code.
+    - name: Checkout code
       uses: actions/checkout@v4
 
     - name: Set up Docker Buildx
@@ -18,9 +18,5 @@ jobs:
     - name: Log in to Docker Hub
       run: echo "${{ secrets.DOCKERHUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
-    - name: Build Docker Image
-      run: |
-        docker buildx build --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKERHUB_USERNAME }}/auth-microservices:latest .
-        
-    - name: Push Docker Image
-      run: docker --push ${{ secrets.DOCKERHUB_USERNAME }}/auth-microservices:latest
+    - name: Build and Push Docker Image
+      run: docker buildx build --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKERHUB_USERNAME }}/auth-microservices:latest --push .
