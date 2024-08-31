@@ -1,0 +1,28 @@
+name: cd
+
+on:
+   workflow_run:
+    workflows: ["Docker Image CI"]
+    types:
+      - completed
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+    - name: Pull docker image
+      run: sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/auth-microservices:latest
+
+    - name: Delete Old docker container
+      run: sudo docker rm -f auth-microservices-container || true
+
+    - name: Run Docker Container
+      run: |
+            docker run -d --platform linux/amd64 -p 5001:5002 \
+            -e DATABASE_URL="${{ secrets.DATABASE_URL }}" \
+            -e JWT_SECRET="${{ secrets.JWT_SECRET }}" \
+            -e EMAIL_USERNAME="${{ secrets.EMAIL_USERNAME }}" \
+            -e EMAIL_PASSWORD="${{ secrets.EMAIL_PASSWORD }}" \
+            -e NODE_ENV="development" \
+            ${{ secrets.DOCKERHUB_USERNAME }}/auth-microservices:latest
