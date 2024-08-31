@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: CI - Build Docker Image
 
 on:
   push:
@@ -20,6 +20,6 @@ jobs:
 
     - name: Build Docker Image
       run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/auth-microservices:latest .
-      
+
     - name: Push Docker Image
       run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/auth-microservices:latest

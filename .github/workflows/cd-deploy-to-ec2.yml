@@ -1,8 +1,8 @@
-name: cd
+name: CD - Deploy to EC2
 
 on:
    workflow_run:
-    workflows: ["Docker Image CI"]
+    workflows: ["CI - Build Docker Image"]
     types:
       - completed
 
