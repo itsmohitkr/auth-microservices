@@ -11,12 +11,13 @@ jobs:
     runs-on: self-hosted
 
     steps:
+
     - name: Log in to Docker Hub
       uses: docker/login-action@v3
       with:
             username: ${{ secrets.DOCKERHUB_USERNAME }}
             password: ${{ secrets.DOCKERHUB_PASSWORD }}
-            
+
     - name: Pull docker image
       run: sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/auth-microservices:latest
 
@@ -25,7 +26,7 @@ jobs:
 
     - name: Run Docker Container
       run: |
-            docker run -d -p 5001:5002 \
+            docker run -d -p 5002:5002 \
             -e DATABASE_URL="${{ secrets.DATABASE_URL }}" \
             -e JWT_SECRET="${{ secrets.JWT_SECRET }}" \
             -e EMAIL_USERNAME="${{ secrets.EMAIL_USERNAME }}" \
