@@ -1,6 +1,6 @@
 Here's a detailed `README.md` file template for your Node.js authentication microservices project. This template covers the setup, usage, and deployment processes, including the CI/CD pipeline you described.
 
-```markdown
+
 # Node.js Authentication Microservices
 
 This project is an authentication microservices system built with Node.js, Express, Docker, and GitHub Actions for CI/CD deployment on an EC2 instance. It includes routes for user signup, login, logout, token verification, and password reset functionalities.
@@ -25,7 +25,6 @@ This project is an authentication microservices system built with Node.js, Expre
 - [CI/CD Pipeline](#cicd-pipeline)
 - [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Getting Started
 
@@ -175,3 +174,4 @@ jobs:
 
 Feel free to submit issues or pull requests for improvements. For major changes, please discuss them in an issue first.
 
+- Thank you !!
