@@ -1,5 +1,3 @@
-Here's a detailed `README.md` file template for your Node.js authentication microservices project. This template covers the setup, usage, and deployment processes, including the CI/CD pipeline you described.
-
 
 # Node.js Authentication Microservices
 
