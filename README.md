@@ -169,6 +169,120 @@ jobs:
 - **`POST /forgot-password`** - Send password reset email
 - **`POST /reset-password`** - Reset the user's password
 
+## `POST /login`
+
+**Request Body:**
+```json
+{
+  "data": {
+    "email": "john.doe@example.com",
+    "password": "password123"
+  }
+}
+```
+
+**Response:**
+```json
+{
+  "data": {
+    "user_id": 1,
+    "full_name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "$2b$10$samplehashedpassword",
+    "created_at": "2024-08-20T12:33:52.390Z",
+    "updated_at": "2024-08-20T12:33:52.390Z"
+  }
+}
+```
+
+**Status Code:** `200 OK`
+
+
+
+## `POST /logout`
+
+**Request Body:**
+```json
+{
+  "data": {
+    "email": "john.doe@example.com"
+  }
+}
+```
+
+**Response:**
+```json
+{
+  "message": "Logged out"
+}
+```
+
+**Status Code:** `200 OK`
+
+
+
+## `POST /forgot-password`
+
+**Request Body:**
+```json
+{
+  "data": {
+    "email": "john.doe@example.com"
+  }
+}
+```
+
+**Response:**
+```json
+{
+  "message": "Password reset link sent to your email"
+}
+```
+
+**Status Code:** `200 OK`
+
+
+
+## `POST /reset-password?token=token`
+
+**Request Body:**
+```json
+{
+  "data": {
+    "newPassword": "newpassword123"
+  }
+}
+```
+
+**Response:**
+```json
+{
+  "message": "Password successfully reset. Please Login to view resources."
+}
+```
+
+**Status Code:** `200 OK`
+
+
+
+## `GET /verify-token`
+
+**Request Body:** No request body
+
+**Response:**
+```json
+{
+  "user": {
+    "id": 1,
+    "email": "john.doe@example.com",
+    "full_name": "John Doe",
+    "iat": 1725454746
+  }
+}
+```
+
+**Status Code:** `200 OK`
+
 ## Contributing
 
 Feel free to submit issues or pull requests for improvements. For major changes, please discuss them in an issue first.
