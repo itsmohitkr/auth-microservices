@@ -20,7 +20,7 @@ jobs:
 
     - name: Run Docker Container
       run: |
-            docker run -d -p 5002:5002 --name auth-microservices-container \
+            docker run -d -p 80:5002 --name auth-microservices-container \
             -e DATABASE_URL="${{ secrets.DATABASE_URL }}" \
             -e JWT_SECRET="${{ secrets.JWT_SECRET }}" \
             -e EMAIL_USERNAME="${{ secrets.EMAIL_USERNAME }}" \
