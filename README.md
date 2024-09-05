@@ -54,7 +54,7 @@ NODE_ENV=development  # or production
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/itsmohitkr/learn-github-actions-node-auth-microservices
+   git clone https://github.com/itsmohitkr/auth-microservices
    ```
 
 2. Install dependencies:
