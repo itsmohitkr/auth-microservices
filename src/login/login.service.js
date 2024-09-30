@@ -1,4 +1,4 @@
-const knex = require("../db/connection");
+const {knex} = require("../db/connection");
 
 function read(email) {
   return knex("user")

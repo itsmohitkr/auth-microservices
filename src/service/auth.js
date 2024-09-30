@@ -12,9 +12,7 @@ function setUser(user) {
   return jwt.sign(payload, secretKey);
 }
 
-function getUser(token) {
-  console.log(jwt.verify(token, secretKey));
-  
+function getUser(token) {  
   return jwt.verify(token, secretKey);
 }
 
