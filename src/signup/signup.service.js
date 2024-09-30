@@ -1,4 +1,4 @@
-const knex = require("../db/connection");
+const {knex} = require("../db/connection");
 
 function create(full_name, email, password) {
   return knex("user")

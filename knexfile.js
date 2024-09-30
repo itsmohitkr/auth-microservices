@@ -1,7 +1,7 @@
 require("dotenv").config();
 
 const path = require("path");
-const { DATABASE_URL } = process.env;
+const { DATABASE_URL, DATABASE_APITABLE_URL } = process.env;
 
 module.exports = {
   development: {
@@ -18,6 +18,11 @@ module.exports = {
       directory: path.join(__dirname, "src", "db", "migrations"),
     },
   },
+  developmentApi: {
+    client: "postgresql",
+    connection: DATABASE_APITABLE_URL,
+    migrations: {
+      directory: path.join(__dirname, "src", "db", "migrations"),
+    },
+  },
 };
-
-// comment

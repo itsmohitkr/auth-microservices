@@ -8,6 +8,7 @@ const verifyRouter = require("./verify/verify.router");
 const forgotPasswordRouter = require("./forgotPassword/forgotPassword.router");
 const resetPasswordRouter = require("./resetPassword/resetPassword.router");
 const { restrictToLoggedinUserOnly } = require("./middleware/auth");
+const { verifyApiKey } = require("./middleware/verifyApiKey");
 
 // Middleware
 
@@ -29,6 +30,8 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 
+app.use(verifyApiKey);
+
 app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
 app.use("/verify-token", verifyRouter);
@@ -43,12 +46,6 @@ app.post("/logout", (req, res) => {
   });
   res.status(200).send("Logged out");
 });
-
-
-// Home route
-// http://localhost:5001/auth/cliendId/login
-// http://localhost:5001/auth/cliendId/login
-// http://localhost:5001/auth/cliendId/login
 
 app.use(restrictToLoggedinUserOnly);
 
