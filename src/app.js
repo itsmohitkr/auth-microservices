@@ -30,7 +30,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routes
 
-// app.use(verifyApiKey); // Commented for now
+// app.use(verifyApiKey); // commented for now
 
 app.use("/signup", signupRouter);
 app.use("/login", loginRouter);
