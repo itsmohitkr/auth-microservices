@@ -17,7 +17,8 @@ app.use(
     origin: [
       "https://resturant-reservatation.onrender.com",
       "https://resturant-reservatation-system.onrender.com",
-      "https://swiftgate.online", // Add your service domain here
+      "https://resturant-reservatation-system-frontend.onrender.com",
+      "https://resturant-reservatation-system-1.onrender.com",
       "http://localhost:3000",
     ],
     credentials: true, // Allow credentials (cookies)
