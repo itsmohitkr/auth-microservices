@@ -22,6 +22,9 @@ jobs:
       run: |
             docker run -d -p 5002:5002 --name auth-microservices-container \
             -e DATABASE_URL="${{ secrets.DATABASE_URL }}" \
+            -e USER_NAME="${{ secrets.USER_NAME }}" \
+            -e DATABASE_PASSWORD="${{ secrets.DATABASE_PASSWORD }}" \
+            -e DATABASE_NAME="${{ secrets.DATABASE_NAME }}" \
             -e DATABASE_APITABLE_URL="${{ secrets.DATABASE_APITABLE_URL }}" \
             -e JWT_SECRET="${{ secrets.JWT_SECRET }}" \
             -e EMAIL_USERNAME="${{ secrets.EMAIL_USERNAME }}" \
